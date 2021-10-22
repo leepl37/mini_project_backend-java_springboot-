@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
+
+<mapper namespace="chironsoft.test.domain.model.app.MemberMapper">
+
+	<!--가입된 멤버들 전체 조회-->
+	<select id="getAllUser" resultType="chironsoft.test.Dao.Member">
+		SELECT pk_member_idx_01, member_id, member_pw
+		  FROM tb_member
+	</select>
+
+	<!--멤버객체를 통해 아이디와 비밀번호 Insert -->
+	<insert id="insertNewMember" parameterType="chironsoft.test.Dao.Member">
+		INSERT INTO tb_member
+			(member_id, member_pw)
+		VALUES (#{memberId}, #{memberPw})
+	</insert>
+
+	<!--특정 멤버 조회-->
+	<select id="getMemberWithId" parameterType="String" resultType="chironsoft.test.Dao.Member">
+		SELECT pk_member_idx_01, member_id, member_pw
+			FROM tb_member
+		WHERE member_id = #{memberId}
+	</select>
+
+	<select id="getMember" parameterType="int" resultType="chironsoft.test.Dao.Member">
+		SELECT pk_member_idx_01, member_id, member_pw
+		FROM tb_member
+		WHERE pk_member_idx_01 = #{pkMemberIdx01}
+	</select>
+
+	<delete id="deleteMember" parameterType="String">
+		DELETE FROM tb_member
+		WHERE member_id = #{memberId}
+	</delete>
+
+</mapper>
+

@@ -1,0 +1,98 @@
+01-25 10:55:10.951 [34m INFO[0;39m [restartedMain] [36mServerApplication:55[0;39m [35mlogStarting[0;39m     : Starting ServerApplication on DESKTOP-N0GM3GH with PID 18132 (D:\stsWork\likeit\TEST_SERVER\target\classes started by jskang in D:\stsWork\likeit\TEST_SERVER)
+01-25 10:55:10.955 [34m INFO[0;39m [restartedMain] [36mServerApplication:655[0;39m [35mlogStartupProfileInfo[0;39m : The following profiles are active: staging
+01-25 10:55:11.001 [34m INFO[0;39m [restartedMain] [36mDevToolsPropertyDefaultsPostProcessor:225[0;39m [35mlogTo[0;39m : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+01-25 10:55:11.001 [34m INFO[0;39m [restartedMain] [36mDevToolsPropertyDefaultsPostProcessor:225[0;39m [35mlogTo[0;39m : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+01-25 10:55:11.662 [34m INFO[0;39m [restartedMain] [36mTomcatWebServer:92[0;39m [35minitialize[0;39m        : Tomcat initialized with port(s): 9081 (https) 9082 (http)
+01-25 10:55:11.667 [34m INFO[0;39m [restartedMain] [36mHttp11NioProtocol:173[0;39m [35mlog[0;39m            : Initializing ProtocolHandler ["https-jsse-nio-9081"]
+01-25 10:55:11.668 [34m INFO[0;39m [restartedMain] [36mHttp11NioProtocol:173[0;39m [35mlog[0;39m            : Initializing ProtocolHandler ["http-nio-9082"]
+01-25 10:55:11.673 [34m INFO[0;39m [restartedMain] [36mStandardService:173[0;39m [35mlog[0;39m              : Starting service [Tomcat]
+01-25 10:55:11.674 [34m INFO[0;39m [restartedMain] [36mStandardEngine:173[0;39m [35mlog[0;39m               : Starting Servlet engine: [Apache Tomcat/9.0.30]
+01-25 10:55:11.727 [34m INFO[0;39m [restartedMain] [36m[/]:173[0;39m [35mlog[0;39m                          : Initializing Spring embedded WebApplicationContext
+01-25 10:55:11.727 [34m INFO[0;39m [restartedMain] [36mContextLoader:284[0;39m [35mprepareWebApplicationContext[0;39m : Root WebApplicationContext: initialization completed in 726 ms
+01-25 10:55:11.767 [34m INFO[0;39m [restartedMain] [36mHikariDataSource:80[0;39m [35m<init>[0;39m           : HikariPool-1 - Starting...
+01-25 10:55:11.798 [34m INFO[0;39m [restartedMain] [36mHikariDataSource:82[0;39m [35m<init>[0;39m           : HikariPool-1 - Start completed.
+01-25 10:55:11.973 [34m INFO[0;39m [restartedMain] [36mThreadPoolTaskExecutor:171[0;39m [35minitialize[0;39m : Initializing ExecutorService 'applicationTaskExecutor'
+01-25 10:55:12.036 [31m WARN[0;39m [restartedMain] [36mThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration:106[0;39m [35mcheckTemplateLocationExists[0;39m : Cannot find template location: classpath:/static/ (please add some templates or check your Thymeleaf configuration)
+01-25 10:55:12.118 [34m INFO[0;39m [restartedMain] [36mStdSchedulerFactory:1220[0;39m [35minstantiate[0;39m : Using default implementation for ThreadExecutor
+01-25 10:55:12.125 [34m INFO[0;39m [restartedMain] [36mSchedulerSignalerImpl:61[0;39m [35m<init>[0;39m      : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+01-25 10:55:12.125 [34m INFO[0;39m [restartedMain] [36mQuartzScheduler:229[0;39m [35m<init>[0;39m           : Quartz Scheduler v.2.3.2 created.
+01-25 10:55:12.126 [34m INFO[0;39m [restartedMain] [36mQuartzScheduler:666[0;39m [35mshutdown[0;39m         : Scheduler MediaScheduler_$_DESKTOP-N0GM3GH1611539712119 shutting down.
+01-25 10:55:12.126 [34m INFO[0;39m [restartedMain] [36mQuartzScheduler:585[0;39m [35mstandby[0;39m          : Scheduler MediaScheduler_$_DESKTOP-N0GM3GH1611539712119 paused.
+01-25 10:55:12.127 [31m WARN[0;39m [restartedMain] [36mJobStoreTX:748[0;39m [35mshutdown[0;39m              : Database connection shutdown unsuccessful.
+java.sql.SQLException: There is no DataSource named 'null'
+	at org.quartz.utils.DBConnectionManager.shutdown(DBConnectionManager.java:135)
+	at org.quartz.impl.jdbcjobstore.JobStoreSupport.shutdown(JobStoreSupport.java:746)
+	at org.quartz.core.QuartzScheduler.shutdown(QuartzScheduler.java:732)
+	at org.quartz.impl.StdSchedulerFactory.shutdownFromInstantiateException(StdSchedulerFactory.java:1431)
+	at org.quartz.impl.StdSchedulerFactory.instantiate(StdSchedulerFactory.java:1391)
+	at org.quartz.impl.StdSchedulerFactory.getScheduler(StdSchedulerFactory.java:1579)
+	at org.springframework.scheduling.quartz.SchedulerFactoryBean.createScheduler(SchedulerFactoryBean.java:677)
+	at org.springframework.scheduling.quartz.SchedulerFactoryBean.prepareScheduler(SchedulerFactoryBean.java:614)
+	at org.springframework.scheduling.quartz.SchedulerFactoryBean.afterPropertiesSet(SchedulerFactoryBean.java:502)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:860)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:878)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at chironsoft.test.ServerApplication.main(ServerApplication.java:18)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+01-25 10:55:12.127 [34m INFO[0;39m [restartedMain] [36mQuartzScheduler:740[0;39m [35mshutdown[0;39m         : Scheduler MediaScheduler_$_DESKTOP-N0GM3GH1611539712119 shutdown complete.
+01-25 10:55:12.127 [31m WARN[0;39m [restartedMain] [36mAnnotationConfigServletWebServerApplicationContext:558[0;39m [35mrefresh[0;39m : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'quartzScheduler' defined in class path resource [org/springframework/boot/autoconfigure/quartz/QuartzAutoConfiguration.class]: Invocation of init method failed; nested exception is org.quartz.SchedulerConfigException: DataSource name not set.
+01-25 10:55:12.128 [34m INFO[0;39m [restartedMain] [36mThreadPoolTaskExecutor:208[0;39m [35mshutdown[0;39m  : Shutting down ExecutorService 'applicationTaskExecutor'
+01-25 10:55:12.128 [34m INFO[0;39m [restartedMain] [36mHikariDataSource:350[0;39m [35mclose[0;39m           : HikariPool-1 - Shutdown initiated...
+01-25 10:55:12.136 [34m INFO[0;39m [restartedMain] [36mHikariDataSource:352[0;39m [35mclose[0;39m           : HikariPool-1 - Shutdown completed.
+01-25 10:55:12.138 [34m INFO[0;39m [restartedMain] [36mStandardService:173[0;39m [35mlog[0;39m              : Stopping service [Tomcat]
+01-25 10:55:12.145 [34m INFO[0;39m [restartedMain] [36mConditionEvaluationReportLoggingListener:136[0;39m [35mlogMessage[0;39m : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+01-25 10:55:12.149 [1;31mERROR[0;39m [restartedMain] [36mSpringApplication:826[0;39m [35mreportFailure[0;39m  : Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'quartzScheduler' defined in class path resource [org/springframework/boot/autoconfigure/quartz/QuartzAutoConfiguration.class]: Invocation of init method failed; nested exception is org.quartz.SchedulerConfigException: DataSource name not set.
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1796)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:860)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:878)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at chironsoft.test.ServerApplication.main(ServerApplication.java:18)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.quartz.SchedulerConfigException: DataSource name not set.
+	at org.quartz.impl.jdbcjobstore.JobStoreSupport.initialize(JobStoreSupport.java:643)
+	at org.quartz.impl.jdbcjobstore.JobStoreTX.initialize(JobStoreTX.java:57)
+	at org.quartz.impl.StdSchedulerFactory.instantiate(StdSchedulerFactory.java:1368)
+	at org.quartz.impl.StdSchedulerFactory.getScheduler(StdSchedulerFactory.java:1579)
+	at org.springframework.scheduling.quartz.SchedulerFactoryBean.createScheduler(SchedulerFactoryBean.java:677)
+	at org.springframework.scheduling.quartz.SchedulerFactoryBean.prepareScheduler(SchedulerFactoryBean.java:614)
+	at org.springframework.scheduling.quartz.SchedulerFactoryBean.afterPropertiesSet(SchedulerFactoryBean.java:502)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792)
+	... 21 common frames omitted

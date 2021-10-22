@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
+
+<mapper namespace="chironsoft.test.domain.model.app.OrderMapper">
+
+
+	<!--상품객체를 통해 Insert -->
+	<insert id="insertNewOrder" parameterType="chironsoft.test.Dao.Order">
+		INSERT INTO tb_order
+			(fk_order_member_idx_01, fk_order_product_idx_02, order_count, order_commit)
+		VALUES (#{fkOrderMemberIdx01}, #{fkOrderProductIdx02}, #{orderCount}, #{orderCommit})
+	</insert>
+
+	<!--특정 주문 조회-->
+	<select id="getTheOrder" parameterType="int" resultType="chironsoft.test.Dao.Order">
+		SELECT pk_order_01, fk_order_member_idx_01, fk_order_product_idx_02, order_count, order_commit
+			FROM tb_order
+		WHERE pk_order_01 = #{pkOrder01}
+	</select>
+
+	<delete id="cancelOrder" parameterType="int">
+		DELETE FROM tb_Order
+		WHERE pk_order_01 = #{pkOrder01}
+	</delete>
+
+
+	<!-- 특정 상품 개수 업데이트 -->
+	<update id="updateProductCount" parameterType="chironsoft.test.Dao.Product">
+		UPDATE tb_product
+		SET product_count = #{productCount}
+		WHERE pk_product_idx_01 = #{pkProductIdx01}
+	</update>
+
+	<update id="fromBasketToCommit" parameterType="int">
+		UPDATE tb_order SET order_commit = 1
+		WHERE pk_order_01 = #{pkOrder01};
+	</update>
+
+
+	<select id="getBasketOrder" parameterType="int" resultType="chironsoft.test.Dao.BasketOrder">
+		SELECT pk_member_idx_01, member_id, order_count, product_name
+		FROM tb_member AS m
+		INNER JOIN tb_order AS o
+		ON m.PK_MEMBER_IDX_01 = o.FK_ORDER_MEMBER_IDX_01
+		INNER JOIN tb_product AS p
+		ON p.PK_PRODUCT_IDX_01 = o.FK_ORDER_PRODUCT_IDX_02
+		WHERE o.FK_ORDER_MEMBER_IDX_01 = #{fkOrderMemberIdx01};
+	</select>
+
+	<select id="getCommitOrder" parameterType="int" resultType="chironsoft.test.Dao.CommitOrder">
+		SELECT pk_member_idx_01, member_id, order_count, product_name
+		FROM tb_member AS m
+		INNER JOIN tb_order AS o
+		ON m.PK_MEMBER_IDX_01 = o.FK_ORDER_MEMBER_IDX_01
+		INNER JOIN tb_product AS p
+		ON p.PK_PRODUCT_IDX_01 = o.FK_ORDER_PRODUCT_IDX_02
+		WHERE o.FK_ORDER_MEMBER_IDX_01 = #{fkOrderMemberIdx01} and o.ORDER_COMMIT=1;
+	</select>
+
+</mapper>
+

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd">
+
+<mapper namespace="chironsoft.test.domain.model.app.ProductMapper">
+
+	<!--가입된 상품들 전체 조회-->
+	<select id="getAllProduct" resultType="chironsoft.test.Dao.Product">
+		SELECT pk_product_idx_01, product_name, product_count, product_detail
+		  FROM tb_product
+	</select>
+
+	<!--상품객체를 통해 Insert -->
+	<insert id="insertNewProduct" parameterType="chironsoft.test.Dao.Product">
+		INSERT INTO tb_product
+			(product_name, product_count, product_detail)
+		VALUES (#{productName}, #{productCount}, #{productDetail})
+	</insert>
+
+	<!--특정 멤버 조회-->
+	<select id="getProduct" parameterType="int" resultType="chironsoft.test.Dao.Product">
+		SELECT pk_product_idx_01, product_name, product_count, product_detail
+			FROM tb_product
+		WHERE pk_product_idx_01 = #{pkProductIdx01}
+	</select>
+
+	<!-- 특정 상품 개수 업데이트 -->
+	<update id="updateProductCount" parameterType="chironsoft.test.Dao.Product">
+		UPDATE tb_product
+		SET product_count = #{productCount}
+		WHERE pk_product_idx_01 = #{pkProductIdx01}
+	</update>
+
+	<delete id="deleteProduct" parameterType="int">
+		DELETE FROM tb_product
+		WHERE pk_product_idx_01 = #{pkProductIdx01}
+	</delete>
+
+</mapper>
+
